@@ -19,6 +19,17 @@
             <h2>List Activity</h2>
             <ul id="task-list">
                 <!-- Tasks will be added here dynamically -->
+                <li class="task-card" data-task-id="id">
+                    <div class="task-card-content">
+                        <h3 class="task-title">Task Title</h3>
+                        <p class="task-date">Due: 5 Aug 2026</p>
+                        <span class="task-status status-pending">Pending</span>
+                    </div>
+                    <div class="task-card-actions">
+                        <input type="checkbox" class="task-checkbox" title="Mark as done">
+                        <button type="button" class="task-delete-btn" title="Delete task">🗑</button>
+                    </div>
+                </li>
             </ul>
             <div id="task-count">
                 <p>Total Tasks: <span id="total-tasks">0</span></p>
@@ -33,27 +44,6 @@
                 <button type="submit">Add Task</button>
             </form>
         </section>
-        <!-- input form -->
-        <div class="modal-overlay" id="modal-overlay">
-            <div class="modal-box">
-                <button type="button" class="modal-close" id="modal-close">&times;</button>
-                <div class="input-container">
-                    <div class="icon">
-                        <img src="https://img.icons8.com/ios/50/000000/add--v1.png" alt="Add Icon">
-                    </div>
-                    <form id="input-form">
-                        <label for="input-field">Habit name</label>
-                        <input type="text" id="input-field" placeholder="Enter a new habit..." required>
-
-                        <label for="input-date">Date</label>
-                        <input type="date" id="input-date" required>
-
-                        <button type="submit">Save</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-
         <!-- progress section -->
         <section class="progress-section">
             <h2>Progress</h2>
@@ -66,6 +56,40 @@
     <footer>
         <p>&copy; 2024 Task & Habit Tracker. All rights reserved.</p>
     </footer>
+
+    <!-- input form -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal-box">
+            <button type="button" class="modal-close" id="modal-close">&times;</button>
+            <div class="input-container">
+                <div class="icon">
+                    <img src="https://img.icons8.com/ios/50/000000/add--v1.png" alt="Add Icon">
+                </div>
+                <form id="input-form">
+                    <label for="input-field">Task name</label>
+                    <input type="text" id="input-field" placeholder="Enter a new task..." required>
+
+                    <label for="input-date">Date</label>
+                    <input type="date" id="input-date" required>
+
+                    <button type="submit">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="task-detail-overlay">
+        <div class="modal-box">
+            <button type="button" class="modal-close" id="task-detail-close">&times;</button>
+            <h2 id="detail-title">Task name</h2>
+            <p id="detail-date">Due: -</p>
+            <p id="detail-status">Status: -</p>
+            <div class="detail-actions">
+                <button type="button" id="detail-edit-btn">Edit</button>
+                <button type="button" id="detail-delete-btn">Delete</button>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
