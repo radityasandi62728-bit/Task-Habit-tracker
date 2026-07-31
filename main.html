@@ -1,60 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Task & Habit Tracker</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <header>
-            <h1>Task & Habit Tracker</h1>
-        </header>
-        <main>
-            <section class="main-section">
-                <h2>List Activity</h2>
-                <ul id="task-list">
-                    <!-- Tasks will be added here dynamically -->
-                </ul>
-                <div id="task-count">
-                    <p>Total Tasks: <span id="total-tasks">0</span></p>
-                    <p>Completed Tasks: <span id="completed-tasks">0</span></p>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Simple task and habit tracker web app">
+    <meta name="author" content="Lyra">
+    <title>Task & Habit Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Task & Habit Tracker</h1>
+    </header>
+    <main>
+        <section class="main-section">
+            <h2>List Activity</h2>
+            <ul id="task-list">
+                <!-- Tasks will be added here dynamically -->
+            </ul>
+            <div id="task-count">
+                <p>Total Tasks: <span id="total-tasks">0</span></p>
+                <p>Completed Tasks: <span id="completed-tasks">0</span></p>
+            </div>
+            <div class="list-form">
+                <div class="form-container">
+                    <p>no task available, please add one!</p>
                 </div>
-                <div class="list-form">
-                    <div class="form-container">
-                        <p>no task available, please add one!</p>
-                    </div>
-                </div>
-                <form id="task-form">
-                    <input type="text" id="task-input" placeholder="Enter a new task..." required>
-                    <button type="submit">Add Task</button>
-                </form>
-            </section>
-            <!-- input form -->
-             <div class="input-form">
+            </div>
+            <form id="task-form">
+                <button type="submit">Add Task</button>
+            </form>
+        </section>
+        <!-- input form -->
+        <div class="modal-overlay" id="modal-overlay">
+            <div class="modal-box">
+                <button type="button" class="modal-close" id="modal-close">&times;</button>
                 <div class="input-container">
                     <div class="icon">
                         <img src="https://img.icons8.com/ios/50/000000/add--v1.png" alt="Add Icon">
                     </div>
                     <form id="input-form">
+                        <label for="input-field">Habit name</label>
                         <input type="text" id="input-field" placeholder="Enter a new habit..." required>
+
+                        <label for="input-date">Date</label>
                         <input type="date" id="input-date" required>
-                        <button type="submit">Add Habit</button>
+
+                        <button type="submit">Save</button>
                     </form>
                 </div>
-             </div>
-            
-            <!-- progress section -->
-            <section class="progress-section">
-                <h2>Progress</h2>
-                <div class="progress-container">
-                    <div class="progress-bar" id="progress-bar"></div>
-                </div>
-                <p id="progress-text">0% completed</p>
-            </section>
-        </main>
-    </body>
+            </div>
+        </div>
+
+        <!-- progress section -->
+        <section class="progress-section">
+            <h2>Progress</h2>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            <p id="progress-text">0% completed</p>
+        </section>
+    </main>
     <footer>
         <p>&copy; 2024 Task & Habit Tracker. All rights reserved.</p>
     </footer>
+</body>
+
 </html>
