@@ -7,7 +7,7 @@
     <meta name="description" content="Simple task and habit tracker web app">
     <meta name="author" content="Lyra">
     <title>Task & Habit Tracker</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/fontend/style.css">
 </head>
 
 <body>
@@ -23,25 +23,27 @@
                     <div class="task-card-content">
                         <h3 class="task-title">Task Title</h3>
                         <p class="task-date">Due: 5 Aug 2026</p>
+                        <p class="task-note">Task note goes here...</p>
                         <span class="task-status status-pending">Pending</span>
                     </div>
                     <div class="task-card-actions">
                         <input type="checkbox" class="task-checkbox" title="Mark as done">
-                        <button type="button" class="task-delete-btn" title="Delete task">🗑</button>
+                        <button type="button" class="task-delete-btn" title="Delete task">delete</button>
+                        <button type="button" class="task-save-btn" title="Save task">save</button>
                     </div>
                 </li>
             </ul>
-            <div id="task-count">
+            <div id="task-count" class="task-count">
                 <p>Total Tasks: <span id="total-tasks">0</span></p>
                 <p>Completed Tasks: <span id="completed-tasks">0</span></p>
             </div>
             <div class="list-form">
                 <div class="form-container">
-                    <p>no task available, please add one!</p>
+                   
                 </div>
             </div>
-            <form id="task-form">
-                <button type="submit">Add Task</button>
+            <form id="task-form" class="task-form">
+                <button type="submit" class="floating-button">Add Task</button>
             </form>
         </section>
         <!-- progress section -->
@@ -54,7 +56,7 @@
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 Task & Habit Tracker. All rights reserved.</p>
+        <p>&copy; 2026 Task & Habit Tracker. by Raditya Sandy.</p>
     </footer>
 
     <!-- input form -->
