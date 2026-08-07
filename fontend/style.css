@@ -9,6 +9,7 @@
   /* background utama */
   --color-cream-light: #fffaf3;
   /* background card / elemen di atas cream */
+  --color-section-bg: #e8d9c5; 
 
   --color-success: #6b8e5a;
   --color-warning: #d9a441;
@@ -56,10 +57,19 @@ footer {
   overflow-y: hidden;
 }
 
-#task-list {
+.card-background {
+  background-color: var(--color-section-bg);
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin-bottom: 1rem;
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+#task-list {
   align-items: flex-start;
   gap: 1rem;
   padding: 1rem;
@@ -69,25 +79,39 @@ footer {
   width: 300px;
   height: 300px;
   flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
   background-color: var(--color-cream-light);
   background-image: repeating-linear-gradient(to bottom,
       transparent,
-      transparent 27px,
-      var(--color-brown-light) 29.5px);
+      transparent 23px,
+      var(--color-brown-light) 26.5px);
   border-radius: var(--radius);
   padding: 1rem;
   padding-bottom: 3rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  padding-left: 1.5rem;
+  box-shadow: 0 4px 12px rgba(74, 44, 42, 0.25);
   position: relative;
   border-left: 3px solid var(--color-danger);
-  padding-left: 1.5rem;
   margin-right: 1rem;
 }
 
 .task-card-content {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  flex: 1; 
+  overflow: hidden;
+  gap: 0.4rem; 
+}
+
+.task-title,
+.task-date,
+.task-note {
+  line-height: 28px; /* nyamain sama jarak garis buku (29.5px di background) */
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* teks kepanjangan jadi "..." bukan wrap acak */
 }
 
 .task-card-actions {
@@ -116,6 +140,7 @@ footer {
 .task-title {
   font-size: 1rem;
   color: var(--color-brown-dark);
+  font-weight: bold;
 }
 
 .task-date {
@@ -136,7 +161,10 @@ footer {
   border-radius: 999px;
   font-size: 0.75rem;
   font-weight: bold;
+  line-height: normal; /* badge gak perlu ikutan 28px, biar proporsinya pas */
+  margin-top: 8px;
 }
+
 
 .status-pending {
   background-color: var(--color-warning);
@@ -147,7 +175,7 @@ footer {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 20px;
+  margin-top: auto; /* selalu nempel bawah card, walau isi content beda panjang */
 }
 
 .task-count {
@@ -191,7 +219,132 @@ footer {
 
 .progress-section {
   margin-top: 2rem;
-  padding: 1rem;
   background-color: var(--color-cream-light);
   border-radius: var(--radius);
+  padding: 2rem;
+  width: 100%;
+  height: 600px;
+  max-height: 1000px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* Modal Styles */
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(74, 44, 42, 0.6); 
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px; 
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-box {
+  background-color: var(--color-cream-light);
+  border-radius: var(--radius);
+  padding: 32px 24px 24px;
+  width: 100%;
+  max-width: 380px;
+  position: relative;
+  box-shadow: 0 8px 24px rgba(74, 44, 42, 0.3);
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--color-brown);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.modal-close:hover {
+  background-color: var(--color-cream);
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.icon img {
+  width: 40px;
+  height: 40px;
+  opacity: 0.7;
+}
+
+#input-form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+#input-form label {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: var(--color-brown-dark);
+  margin-top: 10px;
+}
+
+#input-form label:first-of-type {
+  margin-top: 0;
+}
+
+#input-form input,
+#input-form textarea {
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  padding: 10px 12px;
+  border: 1px solid var(--color-brown-light);
+  border-radius: var(--radius);
+  background-color: var(--color-cream);
+  color: var(--color-brown-dark);
+}
+
+#input-form input:focus,
+#input-form textarea:focus {
+  outline: none;
+  border-color: var(--color-brown);
+  box-shadow: 0 0 0 3px rgba(123, 75, 58, 0.15);
+}
+
+#input-form textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+#input-form button[type="submit"] {
+  margin-top: 20px;
+  background-color: var(--color-brown);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#input-form button[type="submit"]:hover {
+  background-color: var(--color-brown-dark);
 }
