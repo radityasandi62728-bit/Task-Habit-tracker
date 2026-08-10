@@ -229,6 +229,10 @@ footer {
   overflow-y: hidden;
 }
 
+.progress-section.active {
+  display: block;
+}
+
 /* Modal Styles */
 
 .modal-overlay {
@@ -330,6 +334,28 @@ footer {
 #input-form textarea {
   resize: vertical;
   min-height: 60px;
+}
+
+#input-form select {
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  padding: 10px 12px;
+  border: 1px solid var(--color-brown-light);
+  border-radius: var(--radius);
+  background-color: var(--color-cream);
+  color: var(--color-brown-dark);
+  cursor: pointer;
+  appearance: none; 
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%237b4b3a' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 32px; 
+}
+
+#input-form select:focus {
+  outline: none;
+  border-color: var(--color-brown);
+  box-shadow: 0 0 0 3px rgba(123, 75, 58, 0.15);
 }
 
 #input-form button[type="submit"] {

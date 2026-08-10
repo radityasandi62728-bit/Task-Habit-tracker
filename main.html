@@ -30,7 +30,7 @@
                         <div class="task-card-actions">
                             <input type="checkbox" class="task-checkbox" title="Mark as done">
                             <button type="button" class="task-delete-btn" title="Delete task">delete</button>
-                            <button type="button" class="task-save-btn" title="Save task">save</button>
+                            <button type="button" class="task-save-btn" title="Save task">edit</button>
                         </div>
                     </li>
 
@@ -45,7 +45,7 @@
                         <div class="task-card-actions">
                             <input type="checkbox" class="task-checkbox" title="Mark as done">
                             <button type="button" class="task-delete-btn" title="Delete task">delete</button>
-                            <button type="button" class="task-save-btn" title="Save task">save</button>
+                            <button type="button" class="task-save-btn" title="Save task">edit</button>
                         </div>
                     </li>
                 </div>
@@ -77,7 +77,7 @@
     </footer>
 
     <!-- input form -->
-    <div class="modal-overlay active" id="modal-overlay">
+    <div class="modal-overlay" id="modal-overlay">
         <div class="modal-box">
             <button type="button" class="modal-close" id="modal-close">&times;</button>
             <div class="input-container">
@@ -93,6 +93,13 @@
 
                     <label for="input-note">Note</label>
                     <textarea id="input-note" placeholder="Enter a note..."></textarea>
+
+                    <label for="input-priority">Priority</label>
+                    <select id="input-priority">
+                        <option value="low">Low</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="high">High</option>
+                    </select>
 
                     <button type="submit">Save</button>
                 </form>
@@ -113,6 +120,7 @@
             </div>
         </div>
     </div>
+    <script src="/fontend/script.js"></script>
 </body>
 
 </html>
